@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button, Card, Container, Row } from 'react-bootstrap';
 import GameCard from './GameCard';
+import { games } from '../data/data';
 
 const Home = () => {
 	const [show, setShow] = useState(false);
@@ -11,29 +12,17 @@ const Home = () => {
 		setShow(true);
 		setFormGameType(gameType);
 	};
+	const gamesRows = games.map((val, index) => {
+		return (
+			<Row key={index}>
+				<GameCard image={val} onClick={() => handleShow({ val })} />
+			</Row>
+		);
+	});
 
 	return (
 		<>
-			<Container>
-				<Row>
-					<GameCard image='pool' onClick={() => handleShow('pool')} />
-				</Row>
-				<Row>
-					<GameCard
-						image='carrom'
-						onClick={() => handleShow('carrom')}
-					/>
-				</Row>
-				<Row>
-					<GameCard image='tt' onClick={() => handleShow('tt')} />
-				</Row>
-				<Row>
-					<GameCard
-						image='chess'
-						onClick={() => handleShow('chess')}
-					/>
-				</Row>
-			</Container>
+			<Container>{gamesRows}</Container>
 			<Modal show={show} onHide={handleClose} size='lg'>
 				<Modal.Header closeButton>
 					<Modal.Title>{formGameType}</Modal.Title>
