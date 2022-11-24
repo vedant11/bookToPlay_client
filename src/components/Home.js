@@ -13,7 +13,7 @@ const Home = () => {
 		setShow(true);
 		setFormGameType(gameType);
 	};
-	const gamesRows = games.map((val, index) => {
+	const gamesRows = games.map((val) => {
 		return (
 			<Row key={val}>
 				<GameCard gameVal={val} onClick={handleShow} />
@@ -29,16 +29,8 @@ const Home = () => {
 					<Modal.Title>{formGameType}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<GameForm />
+					<GameForm gameType={formGameType} />
 				</Modal.Body>
-				<Modal.Footer>
-					<Button variant='secondary' onClick={handleClose}>
-						Close
-					</Button>
-					<Button variant='primary' onClick={handleClose}>
-						Save Changes
-					</Button>
-				</Modal.Footer>
 			</Modal>
 		</>
 	);
