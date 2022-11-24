@@ -15,8 +15,8 @@ const Home = () => {
 	};
 	const gamesRows = games.map((val, index) => {
 		return (
-			<Row key={index}>
-				<GameCard image={val} onClick={() => handleShow({ val })} />
+			<Row key={val}>
+				<GameCard gameVal={val} onClick={handleShow} />
 			</Row>
 		);
 	});

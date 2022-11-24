@@ -3,7 +3,7 @@ import '../style/Card.css';
 
 const GameCard = (props) => {
 	const backgroundStyle = {
-		backgroundImage: `url('/images/${props.image}.jpg')`,
+		backgroundImage: `url('/images/${props.gameVal}.jpg')`,
 	};
 
 	return (
@@ -11,7 +11,9 @@ const GameCard = (props) => {
 			<div
 				className='card-button'
 				style={backgroundStyle}
-				onClick={props.onClick}
+				onClick={() => {
+					props.onClick(props.gameVal);
+				}}
 			/>
 		</div>
 	);
