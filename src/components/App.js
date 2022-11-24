@@ -4,7 +4,7 @@ import Home from './Home';
 
 function App() {
 	return (
-		<div class='App'>
+		<div className='App'>
 			<header>
 				<h1>BookToPlay</h1>
 			</header>
