@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Modal, Button, Card, Container, Row } from 'react-bootstrap';
+import { Modal, Button, Container, Row } from 'react-bootstrap';
 import GameCard from './GameCard';
+import GameForm from './GameForm';
+import { games } from '../data/data';
 
 const Home = () => {
 	const [show, setShow] = useState(false);

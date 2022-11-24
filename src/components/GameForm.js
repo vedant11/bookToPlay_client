@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Pagination from "react-bootstrap/Pagination";
 import "../style/Form.css";
 
 function GameForm() {
