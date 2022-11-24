@@ -1,0 +1,4 @@
+.inline-elements{
+    display: flex;
+    flex-direction: row;
+}

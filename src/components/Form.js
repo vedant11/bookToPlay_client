@@ -2,12 +2,28 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Pagination from 'react-bootstrap/Pagination';
+import '../style/Form.css'
 
 function BasicExample() {
+    let titles=['TT1', 'TT2'];
   return (
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
+        <div className="inline-elements">
+            <Pagination>
+            <Pagination.Prev />
+            <Pagination.Item>
+                    {titles[0]}
+                </Pagination.Item>
+                <Pagination.Item>
+                    {titles[1]}
+                </Pagination.Item>
+            <Pagination.Next />
+            </Pagination>
+            
+        </div>
+      
         <Form.Control type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
