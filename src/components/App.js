@@ -3,7 +3,15 @@ import '../style/App.css';
 import Home from './Home';
 
 function App() {
-	return <Home />;
+	return(
+	<div class = "App">
+		<header>
+		<h1>BookToPlay</h1>
+	</header>
+		<Home />;
+	</div>
+	)
+	
 }
 
 export default App;
