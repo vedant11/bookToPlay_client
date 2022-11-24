@@ -10,11 +10,11 @@ import Card from './Card';
 function App() {
   return (
     <div className='App'>
-      {/* <Card image="carrom"/>
+       <Card image="carrom"/>
       <Card image="pool"/>
       <Card image="tt"/>
-      <Card image="chess"/> */}
-      <Form />
+      <Card image="chess"/>
+      {/* <Form /> */}
     </div>
   );
 }

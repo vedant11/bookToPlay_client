@@ -1,11 +1,8 @@
 .App {
   /* text-align: center; */
   padding: 1em 1em;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  border: 2px solid;
+  background-color: rgb(29, 27, 18);
 }
 
 @media (prefers-reduced-motion: no-preference) {
