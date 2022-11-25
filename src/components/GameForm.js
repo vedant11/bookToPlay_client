@@ -95,7 +95,7 @@ function GameForm(props) {
 			</Form.Group>
 			<TimePicker
 				className='mb-3	'
-				start='08:00'
+				start={day == 'Tomorrow' ? '08:00' : '14:00'}
 				end='18:00'
 				step={30}
 				onChange={(e) => {
