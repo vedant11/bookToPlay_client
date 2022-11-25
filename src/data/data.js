@@ -6,4 +6,6 @@ const gamesData = {
 	pool: { equipments: [], days: ['Today', 'Tomorrow'] },
 	chess: { equipments: [], days: ['Today', 'Tomorrow'] },
 };
-export { games, gamesData };
+
+const URL = 'https://api.agify.io/?name=bella';
+export { games, gamesData, URL };
