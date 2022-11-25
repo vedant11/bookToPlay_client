@@ -32,7 +32,7 @@ const Home = () => {
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<GameForm gameType={formGameType} />
+					<GameForm gameType={formGameType} onClick={handleClose}/>
 				</Modal.Body>
 			</Modal>
 		</>
