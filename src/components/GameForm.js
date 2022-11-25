@@ -10,19 +10,30 @@ function GameForm(props) {
 	const [equipments, setEquipments] = useState('None');
 	const [day, setDay] = useState('');
 	const [timeSlot, setTimeSlot] = useState('8:00');
+	const [time, setTime] = useState(0);
 	const [headCount, setHeadCount] = useState('');
+	const [countOptions, setCountOptions] = useState([]);
 	const currentGameData = gamesData[props.gameType];
 	const isMounted = useRef(false);
+
 	useEffect(() => {
 		if (isMounted.current) {
 			checkAndSetHeadForm();
 		} else {
 			isMounted.current = true;
+			setCountOptions(['Please select the above options first']);
 			return;
 		}
 	}, [equipments, day, timeSlot]);
 
 	const checkAndSetHeadForm = () => {
+		if (
+			(equipments === 'None' &&
+				currentGameData['equipments'].length !== 0) ||
+			day === '' ||
+			timeSlot === ''
+		)
+			return;
 		console.log(
 			'checking',
 			equipments,
@@ -34,13 +45,6 @@ function GameForm(props) {
 			timeSlot,
 			timeSlot === ''
 		);
-		if (
-			(equipments === 'None' &&
-				currentGameData['equipments'].length !== 0) ||
-			day === '' ||
-			timeSlot === ''
-		)
-			return;
 		console.log('passed');
 		fetch(URL)
 			.then((res) => {
@@ -49,14 +53,11 @@ function GameForm(props) {
 			.then((res) => {
 				console.log(res);
 			});
-
 		let maxCount = 4;
-		for (let i = 0; i < maxCount; i++)
-			countOptions.push(
-				<option value={i + 1} key={i}>
-					{i + 1}
-				</option>
-			);
+		let countOptionsCopy = [];
+		for (let i = 0; i < maxCount; i++) countOptionsCopy.push(i);
+		setCountOptions(countOptionsCopy);
+		console.log('changed countOptions', countOptions);
 	};
 
 	const submitForm = (e) => {
@@ -69,9 +70,9 @@ function GameForm(props) {
 		currentGameData[fieldGroup].map((val, idx) => (
 			<Form.Check
 				onChange={(e) => {
-					if (fieldGroup == 'equipments') {
+					if (fieldGroup === 'equipments') {
 						setEquipments(e.target.value);
-					} else if (fieldGroup == 'days') {
+					} else if (fieldGroup === 'days') {
 						setDay(e.target.value);
 					}
 				}}
@@ -84,11 +85,6 @@ function GameForm(props) {
 				key={idx}
 			/>
 		));
-	let countOptions = [
-		<option value={0} key={0}>
-			Please select the above options first
-		</option>,
-	];
 	return (
 		<Form>
 			<Form.Group className='mb-3' controlId='formBasicEmail'>
@@ -98,6 +94,7 @@ function GameForm(props) {
 				{generateChoices('days')}
 			</Form.Group>
 			<TimePicker
+				className='mb-3	'
 				start='08:00'
 				end='18:00'
 				step={30}
@@ -107,14 +104,19 @@ function GameForm(props) {
 							':' +
 							((e / 3600) % 1 === 0.5 ? '30' : '00')
 					);
+					setTime(e);
 				}}
-				value={0}
+				value={time}
 			/>
 			<Form.Group className='mb-3'>
 				<Form.Select
 					aria-label='Default select example'
 					onChange={(e) => setHeadCount(e.target.value)}>
-					{countOptions}
+					{countOptions.map((val, idx) => (
+						<option value={val + 1} key={idx}>
+							{val + 1}
+						</option>
+					))}
 				</Form.Select>
 			</Form.Group>
 			<Button variant='primary' onClick={(e) => submitForm(e)}>
