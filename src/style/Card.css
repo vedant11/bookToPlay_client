@@ -7,3 +7,7 @@
 	border-radius: 8px;
 	box-shadow: inset 10px 10px 50px rgb(97, 84, 84);
 }
+.btn-close {
+	color: white !important;
+	filter: invert(1) grayscale(100%) brightness(200%);
+}

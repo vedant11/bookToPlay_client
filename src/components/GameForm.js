@@ -93,6 +93,9 @@ function GameForm(props) {
 			<Form.Group className='mb-3' controlId='formBasicEmail'>
 				{generateChoices('days')}
 			</Form.Group>
+			<Form.Text className='text-muted'>
+				Booking only for half an hour at a time
+			</Form.Text>
 			<TimePicker
 				className='mb-3	'
 				start='08:00'
@@ -107,6 +110,7 @@ function GameForm(props) {
 					setTime(e);
 				}}
 				value={time}
+				label='hello'
 			/>
 			<Form.Group className='mb-3'>
 				<Form.Select

@@ -4,7 +4,7 @@ import { Modal, Button, Container, Row } from 'react-bootstrap';
 import GameCard from './GameCard';
 import GameForm from './GameForm';
 import { games } from '../data/data';
-import '../style/Home.css'
+import '../style/Home.css';
 
 const Home = () => {
 	const [show, setShow] = useState(false);
@@ -25,9 +25,11 @@ const Home = () => {
 	return (
 		<>
 			<Container>{gamesRows}</Container>
-			<Modal show={show} onHide={handleClose} centered size ="sm">
+			<Modal show={show} onHide={handleClose} centered size='sm'>
 				<Modal.Header closeButton className='modal-header px-4'>
-					<Modal.Title className='modal-title ms-auto text-uppercase'>{formGameType}</Modal.Title>
+					<Modal.Title className='modal-title ms-auto text-uppercase'>
+						{formGameType}
+					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<GameForm gameType={formGameType} />
