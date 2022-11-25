@@ -25,7 +25,7 @@ const Home = () => {
 	return (
 		<>
 			<Container>{gamesRows}</Container>
-			<Modal show={show} onHide={handleClose} size='lg' centered>
+			<Modal show={show} onHide={handleClose} centered size ="sm">
 				<Modal.Header closeButton className='modal-header px-4'>
 					<Modal.Title className='modal-title ms-auto text-uppercase'>{formGameType}</Modal.Title>
 				</Modal.Header>

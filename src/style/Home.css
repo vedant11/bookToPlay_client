@@ -1,0 +1,10 @@
+.modal-dialog{
+    margin: auto;
+    width: 80vw;
+  
+}
+
+.modal-content{
+    background-color: #06121e;
+    color: white;
+}
