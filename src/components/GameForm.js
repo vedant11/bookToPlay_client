@@ -5,7 +5,7 @@ import TimePicker from 'react-bootstrap-time-picker';
 
 import { gamesData, URL } from '../data/data';
 import '../style/Form.css';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 function GameForm(props) {
 	const [equipments, setEquipments] = useState('None');
@@ -67,10 +67,11 @@ function GameForm(props) {
 		console.log('submittedForm', equipments, day, timeSlot, headCount);
 		Swal.fire({
 			title: 'Success!',
-			text: 'Your slot has been booked. You will receive an email regarding it!',
+			text:
+				'Your slot has been booked. You will receive an email regarding it!',
 			icon: 'success',
-			confirmButtonText: 'OMG!! I am so excited 🤩'
-		  })
+			confirmButtonText: 'OMG!! I am so excited 🤩',
+		});
 	};
 
 	const generateChoices = (fieldGroup) =>
@@ -102,7 +103,7 @@ function GameForm(props) {
 			</Form.Group>
 			<TimePicker
 				className='mb-3	'
-				start={day == 'Tomorrow' ? '08:00' : '14:00'}
+				start={day === 'Tomorrow' ? '08:00' : '14:00'}
 				end='18:00'
 				step={30}
 				onChange={(e) => {
