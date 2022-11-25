@@ -22,7 +22,8 @@ function GameForm(props) {
 			checkAndSetHeadForm();
 		} else {
 			isMounted.current = true;
-			setCountOptions(['Please select the above options first']);
+			console.log(countOptions);
+			setCountOptions(['Select number of players']);
 			return;
 		}
 	}, [equipments, day, timeSlot]);
@@ -54,9 +55,9 @@ function GameForm(props) {
 			.then((res) => {
 				console.log(res);
 			});
-		let maxCount = 4;
+		let maxCount = 2;
 		let countOptionsCopy = [];
-		for (let i = 0; i < maxCount; i++) countOptionsCopy.push(i);
+		for (let i = 1; i <= maxCount; i++) countOptionsCopy.push(i);
 		setCountOptions(countOptionsCopy);
 		console.log('changed countOptions', countOptions);
 	};
@@ -104,7 +105,7 @@ function GameForm(props) {
 			</Form.Group>
 			<TimePicker
 				className='mb-3	'
-				start={day === 'Tomorrow' ? '08:00' : '14:00'}
+				start={day === 'Tomorrow' ? '08:00' : '15:30'}
 				end='18:00'
 				step={30}
 				onChange={(e) => {
@@ -122,8 +123,8 @@ function GameForm(props) {
 					aria-label='Default select example'
 					onChange={(e) => setHeadCount(e.target.value)}>
 					{countOptions.map((val, idx) => (
-						<option value={val + 1} key={idx}>
-							{val + 1}
+						<option value={val} key={idx}>
+							{val}
 						</option>
 					))}
 				</Form.Select>
