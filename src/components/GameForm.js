@@ -5,6 +5,7 @@ import TimePicker from 'react-bootstrap-time-picker';
 
 import { gamesData, URL } from '../data/data';
 import '../style/Form.css';
+import Swal from 'sweetalert2'
 
 function GameForm(props) {
 	const [equipments, setEquipments] = useState('None');
@@ -62,8 +63,14 @@ function GameForm(props) {
 
 	const submitForm = (e) => {
 		e.preventDefault();
-		alert('assume I just submitted the form');
+		// alert('assume I just submitted the form');
 		console.log('submittedForm', equipments, day, timeSlot, headCount);
+		Swal.fire({
+			title: 'Success!',
+			text: 'Your slot has been booked. You will receive an email regarding it!',
+			icon: 'success',
+			confirmButtonText: 'OMG!! I am so excited 🤩'
+		  })
 	};
 
 	const generateChoices = (fieldGroup) =>
