@@ -65,6 +65,7 @@ function GameForm(props) {
 		e.preventDefault();
 		// alert('assume I just submitted the form');
 		console.log('submittedForm', equipments, day, timeSlot, headCount);
+		props.onClick();
 		Swal.fire({
 			title: 'Success!',
 			text:

@@ -30,7 +30,7 @@ const Home = () => {
 					<Modal.Title className='modal-title ms-auto text-uppercase'>{formGameType}</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<GameForm gameType={formGameType} />
+					<GameForm gameType={formGameType} onClick={handleClose}/>
 				</Modal.Body>
 			</Modal>
 		</>
